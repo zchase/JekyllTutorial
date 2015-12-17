@@ -1,0 +1,22 @@
+zchase/JekyllTutorial:
+
+  PkgInclude:
+    - '_site/'
+
+  PreRelease:
+    - rvm install ruby-2.0.0-p598
+    - gem install jekyll
+    - gem install html-proofer
+    - jekyll build
+    - htmlproof ./_site
+
+  PreInstall:
+    - 'if [ -a /etc/nginx ]; then'
+    -     echo "NGINX is already installed"
+    - else
+    -     sudo apt-get install nginx -y
+    - fi
+    - sudo rm -rf /usr/share/nginx/html/*
+
+  Start:
+    - sudo mv -v _site/* /usr/share/nginx/html/
