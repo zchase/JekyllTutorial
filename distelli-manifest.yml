@@ -6,9 +6,7 @@ zchase/JekyllTutorial:
   PreRelease:
     - rvm install ruby-2.0.0-p598
     - gem install jekyll
-    - gem install html-proofer
     - jekyll build
-    - htmlproof ./_site
 
   PreInstall:
     - 'if [ -a /etc/nginx ]; then'
